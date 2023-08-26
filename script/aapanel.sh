@@ -27,16 +27,16 @@ wget https://ghproxy.com/https://raw.githubusercontent.com/IkuzaDev/CrackPanel/m
 function start_menu(){
     clear
     purple " Thank you for using the aaPanel tool."
-    purple " 请选择您的语言｜Please select your language"
-    purple " GitHub：https://github.com/AaronYES/aapanel"
+    purple " Please select your language"
+    purple " GitHub：https://github.com/IkuzaDev/CrackPanel"
     yellow " ————————————————————————————————————————————————"
     green " 1. English"
-    green " 2. 简体中文"
+    green " 2. Wuhan Kontol"
     yellow " ————————————————————————————————————————————————"
-    green " 0. 退出脚本｜Exit"
+    green " 0. Exit"
 
     echo
-    read -p "请输入数字｜Please key in numbers：" menuNumberInput
+    read -p "Please key in numbers：" menuNumberInput
     case "$menuNumberInput" in
         1 )
            English
@@ -49,7 +49,7 @@ function start_menu(){
         ;;
         * )
             clear
-            red "请输入正确数字!｜Please enter the correct number!"
+            red "Please enter the correct number!"
             start_menu
         ;;
     esac
