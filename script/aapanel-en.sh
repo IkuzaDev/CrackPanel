@@ -1,8 +1,5 @@
 #! /bin/bash
-# By Aaron
-# https://github.com/AaronYES/aaPanel
 
-#彩色
 red(){
     echo -e "\033[31m\033[01m$1\033[0m"
 }
@@ -19,21 +16,19 @@ purple(){
     echo -e "\033[35m\033[01m$1\033[0m"
 }
 
-# 安装aapanel面板
 function aapanel-install(){
 wget -O "/root/aapanel-install.sh" "http://www.aapanel.com/script/install_6.0_en.sh"
 red "Installing the original aapanel panel from the official website."
 bash "/root/aapanel-install.sh"
 }
 
-# 安装bt面板
 function bt-install(){  
 wget -O "/root/bt-install.sh" "http://download.bt.cn/install/install_6.0.sh"
 red "The original BTPanel is being installed from the official website.."
 bash "/root/bt-install.sh"
 }
 
-# 降级aapanel GitHub下载 (最后一个无广告版本)
+
 function downgrade-aapanel(){
 wget -O "/root/LinuxPanel_EN-6.8.23.zip" "https://ghproxy.com/https://github.com/AaronYES/aapanel/releases/download/1.0/LinuxPanel_EN-6.8.23.zip"
 red "Download complete, downgrading."
@@ -45,7 +40,7 @@ red "Downgrade succeeded."
 rm /root/LinuxPanel_EN-6.8.23.zip /root/panel/ -rf
 }
 
-## 降级宝塔面板
+
 function downgrade-bt(){
 wget -O "/root/LinuxPanel-7.7.0.zip" "https://ghproxy.com/https://github.com/AaronYES/aaPanel/releases/download/1.3/LinuxPanel-7.7.0.zip"
 blue "Download complete, downgrading."
@@ -59,7 +54,7 @@ rm -f /www/server/panel/data/bind.pl
 red "Delete binding succeeded."
 }
 
-# 破解付费
+
 function panel-happy(){
 red "Please manually open the software store once before executing"
 sed -i 's|"endtime": -1|"endtime": 999999999999|g' /www/server/panel/data/plugin.json
@@ -68,19 +63,19 @@ chattr +i /www/server/panel/data/plugin.json
 chattr -i /www/server/panel/data/repair.json
 rm /www/server/panel/data/repair.json
 cd /www/server/panel/data
-wget https://ghproxy.com/https://raw.githubusercontent.com/AaronYES/aaPanel/main/resource/repair.json
+wget https://ghproxy.com/https://raw.githubusercontent.com/IkuzaDev/CrackPanel/main/resource/repair.json
 chattr +i /www/server/panel/data/repair.json
 red "cracked successfully."
 }
 
-# 清理垃圾
+
 function clean-up-trash(){
 rm LinuxPanel_EN-6.8.23.zip aapanel-zh-CN.tar.gz chinese.zip aapanel-install.sh bt-install.sh bt-uninstall.sh panel/ -rf
 red "Cleaned up successfully."
 red "If you want to remove this script, run "rm aapanel.sh -rf""
 }
 
-# 卸载 面板
+
 function uninstall(){
 wget -O "/root/bt-uninstall.sh" "http://download.bt.cn/install/bt-uninstall.sh"
 bash "/root/bt-uninstall.sh"
